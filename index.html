@@ -24,10 +24,11 @@
 
         .mono { font-family: 'JetBrains Mono', monospace; }
         
-        /* Estilo para o nome gótico */
-        .gothic-text {
+        /* Estilo Gótico Customizado */
+        .gothic-name {
             letter-spacing: -0.02em;
-            filter: drop-shadow(0 0 10px rgba(255,255,255,0.1));
+            font-size: 1.4rem;
+            filter: drop-shadow(0 0 5px rgba(255,255,255,0.2));
         }
 
         .game-card {
@@ -63,60 +64,59 @@
             transform: translateY(0);
         }
 
-        /* Efeito de Scanline */
-        .scanline {
-            width: 100%;
-            height: 2px;
-            z-index: 99;
-            background: rgba(255, 255, 255, 0.03);
-            position: absolute;
+        /* Efeito de scanline sutil */
+        .overlay {
+            position: fixed;
             top: 0;
-            animation: scanlineMove 8s linear infinite;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.1) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.02), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.02));
+            z-index: 100;
+            background-size: 100% 4px, 3px 100%;
+            pointer-events: none;
         }
 
-        @keyframes scanlineMove {
-            0% { top: 0%; }
-            100% { top: 100%; }
-        }
-
-        .border-glow {
-            box-shadow: inset 0 0 50px rgba(255,255,255,0.02);
+        .discord-pill:hover {
+            background: #111;
+            border-color: #5865F2;
         }
     </style>
 </head>
 <body class="selection:bg-white selection:text-black overflow-x-hidden">
+    <div class="overlay"></div>
 
     <!-- Navbar -->
     <nav class="fixed top-0 w-full z-50 border-b border-white/5 bg-black/80 backdrop-blur-md py-6 px-8">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
-            <div class="text-xl font-bold tracking-tighter gothic-text">𝕿𝖍𝖊𝖚𝖟𝖎𝖓_𝖉𝖆_𝖇𝖑𝖆𝖈𝖐</div>
+            <div class="gothic-name font-bold">𝕿𝖍𝖊𝖚𝖟𝖎𝖓_𝖉𝖆_𝖇𝖑𝖆𝖈𝖐</div>
             <div class="hidden md:flex gap-8 items-center text-[11px] font-bold uppercase tracking-[0.2em] text-zinc-500">
-                <a href="#servicos" class="hover:text-white transition-colors">Serviços</a>
-                <a href="#contato" class="px-6 py-2 bg-white text-black rounded-sm hover:invert transition-all font-black">Hire Me</a>
+                <a href="#servicos" class="hover:text-white transition-colors">Skills</a>
+                <a href="https://discord.com/users/matheusgou#4257" target="_blank" class="px-6 py-2 bg-white text-black rounded-sm hover:invert transition-all font-black">CHAMAR NO DISCORD</a>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section class="min-h-screen flex flex-col justify-center items-center px-6 relative overflow-hidden border-glow">
-        <div class="scanline"></div>
+    <section class="min-h-screen flex flex-col justify-center items-center px-6 relative overflow-hidden">
         <div class="text-center max-w-5xl z-10">
             <div class="inline-block px-4 py-1 border border-zinc-800 rounded-sm mb-10 bg-zinc-950">
-                <span class="mono text-[10px] text-zinc-400 uppercase tracking-[0.5em]">𝕯𝖊𝖛 Front-end & Games</span>
+                <span class="mono text-[10px] text-zinc-400 uppercase tracking-[0.5em]">𝕯𝖊𝖛 Front-end & Games Master</span>
             </div>
-            <h1 class="text-6xl md:text-[100px] font-black mb-8 tracking-tighter leading-[0.9] glow-text italic">
+            <h1 class="text-6xl md:text-[100px] font-black mb-8 tracking-tighter leading-[0.9] glow-text italic uppercase">
                 SITES, JOGOS <br> <span class="text-zinc-700">2D & 3D.</span>
             </h1>
-            <p class="text-zinc-500 text-lg md:text-xl mb-12 max-w-2xl mx-auto leading-relaxed">
-                Especialista em interfaces de alto nível e desenvolvimento de jogos para web. <br>
+            <p class="text-zinc-500 text-lg md:text-xl mb-12 max-w-2xl mx-auto leading-relaxed font-medium">
+                Desenvolvo interfaces de alto nível e jogos imersivos para web. <br>
                 <span class="text-white font-bold block mt-6 border-l-2 border-white pl-4 italic">"O valor depende do projeto. Me chama ae, bora fazer sua ideia acontecer!"</span>
             </p>
             <div class="flex flex-wrap justify-center gap-6">
-                <a href="#contato" class="px-12 py-5 bg-white text-black font-black uppercase text-xs tracking-[0.3em] rounded-sm hover:bg-zinc-200 transition-all">
-                    Iniciar Contrato
+                <!-- Botão que abre o Discord -->
+                <a href="https://discord.com/users/matheusgou#4257" target="_blank" class="px-12 py-5 bg-white text-black font-black uppercase text-xs tracking-[0.3em] rounded-sm hover:bg-zinc-200 transition-all">
+                    ABRIR DISCORD
                 </a>
                 <a href="#servicos" class="px-12 py-5 bg-zinc-900 border border-zinc-800 text-white font-bold uppercase text-xs tracking-[0.3em] rounded-sm hover:bg-zinc-800 transition-all">
-                    Portfólio
+                    VER SERVIÇOS
                 </a>
             </div>
         </div>
@@ -125,42 +125,24 @@
     <!-- Services Section -->
     <section id="servicos" class="py-32 px-6 max-w-7xl mx-auto">
         <div class="mb-20 reveal">
-            <h2 class="text-4xl font-black italic mb-4 tracking-tighter">𝕯𝖊𝖛 SKILLS</h2>
+            <h2 class="text-4xl font-black italic mb-4 tracking-tighter uppercase">𝕯𝖊𝖛 SKILLS</h2>
             <div class="w-12 h-1 bg-white"></div>
         </div>
 
         <div class="grid lg:grid-cols-3 gap-6">
-            <!-- Front-end -->
             <div class="game-card p-12 rounded-sm reveal">
-                <div class="mb-8 opacity-20">
-                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg>
-                </div>
                 <h3 class="text-2xl font-black mb-4 italic uppercase">Front-end Pro</h3>
-                <p class="text-zinc-500 text-sm leading-relaxed">
-                    Sites modernos, responsivos e otimizados. Foco em UX/UI e performance bruta.
-                </p>
+                <p class="text-zinc-500 text-sm leading-relaxed">Sites modernos, responsivos e otimizados com foco em performance bruta e UX impecável.</p>
             </div>
 
-            <!-- Jogos 2D -->
             <div class="game-card p-12 rounded-sm reveal" style="transition-delay: 0.1s;">
-                <div class="mb-8 opacity-20">
-                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M6 12h4M8 10v4M15 13h.01M18 11h.01"/></svg>
-                </div>
                 <h3 class="text-2xl font-black mb-4 italic uppercase">Web Games 2D</h3>
-                <p class="text-zinc-500 text-sm leading-relaxed">
-                    Desenvolvimento de jogos com física, lógica e sistemas de partículas para navegadores.
-                </p>
+                <p class="text-zinc-500 text-sm leading-relaxed">Desenvolvimento de jogos casuais e competitivos com física e lógica avançada via Canvas.</p>
             </div>
 
-            <!-- Jogos 3D -->
             <div class="game-card p-12 rounded-sm reveal" style="transition-delay: 0.2s;">
-                <div class="mb-8 opacity-20">
-                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-                </div>
                 <h3 class="text-2xl font-black mb-4 italic uppercase">Experiências 3D</h3>
-                <p class="text-zinc-500 text-sm leading-relaxed">
-                    Uso de Three.js e WebGL para criar mundos e objetos tridimensionais interativos.
-                </p>
+                <p class="text-zinc-500 text-sm leading-relaxed">Criação de mundos tridimensionais interativos usando Three.js e WebGL diretamente no browser.</p>
             </div>
         </div>
     </section>
@@ -169,14 +151,14 @@
     <section id="contato" class="py-32 px-6">
         <div class="max-w-4xl mx-auto border border-zinc-800 bg-zinc-950 p-12 md:p-24 rounded-sm text-center relative overflow-hidden">
             <h2 class="text-4xl md:text-7xl font-black mb-10 italic tracking-tighter uppercase leading-none">𝕿𝖍𝖊𝖚𝖟𝖎𝖓_𝖉𝖆_𝖇𝖑𝖆𝖈𝖐</h2>
-            <p class="text-zinc-500 mb-16 max-w-sm mx-auto text-sm font-bold uppercase tracking-widest">
+            <p class="text-zinc-500 mb-16 max-w-sm mx-auto text-xs font-bold uppercase tracking-[0.3em]">
                 "O valor depende do projeto. Me chama ae!"
             </p>
 
             <div class="flex flex-col items-center gap-10">
                 <!-- Discord Box -->
-                <div class="w-full max-w-md bg-black border border-zinc-800 p-6 flex flex-col sm:flex-row items-center justify-between gap-6 group hover:border-zinc-400 transition-all">
-                    <div class="flex items-center gap-5 text-left">
+                <div class="w-full max-w-md bg-black border border-zinc-800 p-6 flex flex-col sm:flex-row items-center justify-between gap-6 group transition-all discord-pill">
+                    <a href="https://discord.com/users/matheusgou#4257" target="_blank" class="flex items-center gap-5 text-left flex-grow">
                         <div class="w-12 h-12 bg-[#5865F2] rounded flex items-center justify-center">
                             <svg width="24" height="24" viewBox="0 0 127.14 96.36" fill="white">
                                 <path d="M107.7,8.07A105.15,105.15,0,0,0,81.47,0a72.06,72.06,0,0,0-3.36,6.83A97.68,97.68,0,0,0,49,6.83,72.37,72.37,0,0,0,45.64,0,105.89,105.89,0,0,0,19.39,8.09C2.71,32.65-1.82,56.6.4,80.21a105.73,105.73,0,0,0,32.17,16.15,77.7,77.7,0,0,0,6.89-11.11,68.42,68.42,0,0,1-10.85-5.18c.91-.66,1.8-1.34,2.66-2a75.57,75.57,0,0,0,64.32,0c.87.71,1.76,1.39,2.66,2a68.68,68.68,0,0,1-10.87,5.19,77,77,0,0,0,6.89,11.1,105.25,105.25,0,0,0,32.19-16.14c3.39-29-5.86-52.64-19.39-72.14ZM42.45,65.69C36.18,65.69,31,60,31,53s5-12.74,11.43-12.74S54,46,53.87,53,48.74,65.69,42.45,65.69Zm42.24,0C78.41,65.69,73.25,60,73.25,53s5-12.74,11.44-12.74S96.23,46,96.11,53,91,65.69,84.69,65.69Z"/>
@@ -184,17 +166,18 @@
                         </div>
                         <div>
                             <p class="text-[9px] text-zinc-600 font-bold uppercase tracking-widest mb-1">Discord Tag</p>
-                            <p id="discord-tag" class="mono font-bold text-white text-xs">theuzin_da_black#0000</p>
+                            <p class="mono font-bold text-white text-xs">matheusgou#4257</p>
                         </div>
-                    </div>
-                    <button onclick="copyDiscord()" id="copy-btn" class="px-5 py-2 bg-zinc-900 border border-zinc-800 hover:bg-white hover:text-black transition-all mono text-[10px] font-bold uppercase tracking-widest">
+                    </a>
+                    <button onclick="copyDiscord(event)" id="copy-btn" class="px-5 py-2 bg-zinc-900 border border-zinc-800 hover:bg-white hover:text-black transition-all mono text-[10px] font-bold uppercase tracking-widest">
                         COPIAR
                     </button>
                 </div>
 
                 <div class="flex gap-10 text-[10px] font-bold uppercase tracking-[0.4em] text-zinc-700">
-                    <a href="#" class="hover:text-white transition-colors">Github</a>
-                    <a href="mailto:contato@theuzin.dev" class="hover:text-white transition-colors">Email</a>
+                    <a href="mailto:contato@theuzin.dev" class="hover:text-white transition-colors underline">Enviar E-mail</a>
+                    <span class="text-zinc-900">//</span>
+                    <a href="#" class="hover:text-white transition-colors">GitHub</a>
                 </div>
             </div>
         </div>
@@ -206,8 +189,9 @@
     </footer>
 
     <script>
-        function copyDiscord() {
-            const tag = "theuzin_da_black#0000"; // SUA TAG AQUI
+        function copyDiscord(e) {
+            e.preventDefault();
+            const tag = "matheusgou#4257";
             const btn = document.getElementById('copy-btn');
             
             const el = document.createElement('textarea');
@@ -218,24 +202,25 @@
             document.body.removeChild(el);
 
             // Feedback Visual
+            const originalText = btn.innerText;
             btn.innerText = 'COPIADO';
             btn.classList.add('copy-success');
             
             setTimeout(() => {
-                btn.innerText = 'COPIAR';
+                btn.innerText = originalText;
                 btn.classList.remove('copy-success');
             }, 2000);
         }
 
-        const revealCallback = (entries) => {
+        // Animação ao rolar
+        const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('active');
                 }
             });
-        };
+        }, { threshold: 0.1 });
 
-        const observer = new IntersectionObserver(revealCallback, { threshold: 0.1 });
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
     </script>
 </body>
