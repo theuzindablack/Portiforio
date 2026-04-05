@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>theuzin_da_black | Front-end & Game Dev</title>
+    <title>𝕿𝖍𝖊𝖚𝖟𝖎𝖓_𝖉𝖆_𝖇𝖑𝖆𝖈𝖐 | 𝕯𝖊𝖛</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -23,6 +23,12 @@
         }
 
         .mono { font-family: 'JetBrains Mono', monospace; }
+        
+        /* Estilo para o nome gótico */
+        .gothic-text {
+            letter-spacing: -0.02em;
+            filter: drop-shadow(0 0 10px rgba(255,255,255,0.1));
+        }
 
         .game-card {
             background: linear-gradient(145deg, #0f0f0f 0%, #050505 100%);
@@ -33,27 +39,17 @@
         .game-card:hover {
             border-color: #444;
             transform: scale(1.02);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.6);
         }
 
         .glow-text {
-            text-shadow: 0 0 15px rgba(255,255,255,0.2);
-        }
-
-        .discord-btn {
-            background: #5865F2;
-            transition: all 0.3s ease;
-        }
-
-        .discord-btn:hover {
-            background: #4752c4;
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(88, 101, 242, 0.3);
+            text-shadow: 0 0 20px rgba(255,255,255,0.15);
         }
 
         .copy-success {
-            background: #10b981 !important;
-            border-color: #10b981 !important;
+            background: #ffffff !important;
+            color: #000000 !important;
+            border-color: #ffffff !important;
         }
 
         .reveal {
@@ -67,75 +63,61 @@
             transform: translateY(0);
         }
 
-        /* Efeito de Scanline para dar vibe de jogo */
+        /* Efeito de Scanline */
         .scanline {
             width: 100%;
-            height: 100px;
+            height: 2px;
             z-index: 99;
-            background: linear-gradient(0deg, rgba(0, 0, 0, 0) 0%, rgba(255, 255, 255, 0.02) 50%, rgba(0, 0, 0, 0) 100%);
-            opacity: 0.1;
+            background: rgba(255, 255, 255, 0.03);
             position: absolute;
-            bottom: 100%;
-            animation: scanline 6s linear infinite;
+            top: 0;
+            animation: scanlineMove 8s linear infinite;
         }
 
-        @keyframes scanline {
-            0% { bottom: 100%; }
-            100% { bottom: -100%; }
+        @keyframes scanlineMove {
+            0% { top: 0%; }
+            100% { top: 100%; }
+        }
+
+        .border-glow {
+            box-shadow: inset 0 0 50px rgba(255,255,255,0.02);
         }
     </style>
 </head>
 <body class="selection:bg-white selection:text-black overflow-x-hidden">
 
     <!-- Navbar -->
-    <nav class="fixed top-0 w-full z-50 border-b border-white/5 bg-black/80 backdrop-blur-md py-5 px-8">
+    <nav class="fixed top-0 w-full z-50 border-b border-white/5 bg-black/80 backdrop-blur-md py-6 px-8">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
-            <div class="text-2xl font-extrabold tracking-tighter mono italic">theuzin<span class="text-zinc-600">_da_black</span></div>
+            <div class="text-xl font-bold tracking-tighter gothic-text">𝕿𝖍𝖊𝖚𝖟𝖎𝖓_𝖉𝖆_𝖇𝖑𝖆𝖈𝖐</div>
             <div class="hidden md:flex gap-8 items-center text-[11px] font-bold uppercase tracking-[0.2em] text-zinc-500">
-                <a href="#sobre" class="hover:text-white transition-colors">Skills</a>
                 <a href="#servicos" class="hover:text-white transition-colors">Serviços</a>
-                <a href="#contato" class="px-5 py-2 bg-white text-black rounded-full hover:bg-zinc-200 transition-all font-black">Call Me</a>
+                <a href="#contato" class="px-6 py-2 bg-white text-black rounded-sm hover:invert transition-all font-black">Hire Me</a>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section class="min-h-screen flex flex-col justify-center items-center px-6 relative overflow-hidden">
+    <section class="min-h-screen flex flex-col justify-center items-center px-6 relative overflow-hidden border-glow">
         <div class="scanline"></div>
         <div class="text-center max-w-5xl z-10">
-            <div class="inline-block px-4 py-1 border border-zinc-800 rounded-full mb-8">
-                <span class="mono text-[10px] text-zinc-500 uppercase tracking-[0.4em]">Front-end & Game Architect</span>
+            <div class="inline-block px-4 py-1 border border-zinc-800 rounded-sm mb-10 bg-zinc-950">
+                <span class="mono text-[10px] text-zinc-400 uppercase tracking-[0.5em]">𝕯𝖊𝖛 Front-end & Games</span>
             </div>
-            <h1 class="text-6xl md:text-[120px] font-black mb-8 tracking-tighter leading-[0.8] glow-text">
-                WEBSITES <br> <span class="italic text-zinc-700">& GAMES.</span>
+            <h1 class="text-6xl md:text-[100px] font-black mb-8 tracking-tighter leading-[0.9] glow-text italic">
+                SITES, JOGOS <br> <span class="text-zinc-700">2D & 3D.</span>
             </h1>
-            <p class="text-zinc-400 text-lg md:text-2xl mb-12 max-w-3xl mx-auto leading-relaxed">
-                Desenvolvo sites modernos, experiências front-end imersivas e jogos web 2D/3D. <br>
-                <span class="text-white font-bold italic block mt-4 text-xl">"O valor depende do projeto. Me chama ae, bora fazer sua ideia acontecer!"</span>
+            <p class="text-zinc-500 text-lg md:text-xl mb-12 max-w-2xl mx-auto leading-relaxed">
+                Especialista em interfaces de alto nível e desenvolvimento de jogos para web. <br>
+                <span class="text-white font-bold block mt-6 border-l-2 border-white pl-4 italic">"O valor depende do projeto. Me chama ae, bora fazer sua ideia acontecer!"</span>
             </p>
             <div class="flex flex-wrap justify-center gap-6">
-                <a href="#contato" class="px-10 py-5 bg-white text-black font-black uppercase text-xs tracking-[0.2em] rounded-full shadow-2xl shadow-white/10 hover:scale-105 transition-all">
-                    Começar Projeto
+                <a href="#contato" class="px-12 py-5 bg-white text-black font-black uppercase text-xs tracking-[0.3em] rounded-sm hover:bg-zinc-200 transition-all">
+                    Iniciar Contrato
                 </a>
-                <a href="#servicos" class="px-10 py-5 bg-zinc-900 border border-zinc-800 text-white font-bold uppercase text-xs tracking-[0.2em] rounded-full hover:bg-zinc-800 transition-all">
-                    O que eu faço
+                <a href="#servicos" class="px-12 py-5 bg-zinc-900 border border-zinc-800 text-white font-bold uppercase text-xs tracking-[0.3em] rounded-sm hover:bg-zinc-800 transition-all">
+                    Portfólio
                 </a>
-            </div>
-        </div>
-        <!-- Abstract Element -->
-        <div class="absolute -bottom-20 -left-20 w-96 h-96 bg-white/5 blur-[120px] rounded-full"></div>
-    </section>
-
-    <!-- Skills/Stack -->
-    <section id="sobre" class="py-20 border-y border-zinc-900 bg-zinc-950/30">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="flex flex-wrap justify-center gap-10 md:gap-20 opacity-30 grayscale hover:grayscale-0 transition-all">
-                <span class="mono font-bold text-xl">HTML5</span>
-                <span class="mono font-bold text-xl">CSS3</span>
-                <span class="mono font-bold text-xl">JAVASCRIPT</span>
-                <span class="mono font-bold text-xl">REACT</span>
-                <span class="mono font-bold text-xl">THREE.JS</span>
-                <span class="mono font-bold text-xl">WEBGL</span>
             </div>
         </div>
     </section>
@@ -143,80 +125,75 @@
     <!-- Services Section -->
     <section id="servicos" class="py-32 px-6 max-w-7xl mx-auto">
         <div class="mb-20 reveal">
-            <h2 class="text-5xl font-black italic mb-4 tracking-tighter">MEU ARSENAL</h2>
-            <div class="w-20 h-2 bg-white"></div>
+            <h2 class="text-4xl font-black italic mb-4 tracking-tighter">𝕯𝖊𝖛 SKILLS</h2>
+            <div class="w-12 h-1 bg-white"></div>
         </div>
 
-        <div class="grid lg:grid-cols-3 gap-8">
+        <div class="grid lg:grid-cols-3 gap-6">
             <!-- Front-end -->
-            <div class="game-card p-12 rounded-[2.5rem] reveal">
-                <div class="mb-8">
-                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+            <div class="game-card p-12 rounded-sm reveal">
+                <div class="mb-8 opacity-20">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg>
                 </div>
-                <h3 class="text-3xl font-black mb-4 italic uppercase">Front-end</h3>
-                <p class="text-zinc-500 text-sm leading-relaxed mb-10">
-                    Criação de sites institucionais, e-commerces e dashboards. Interfaces ultra rápidas, responsivas e com animações fluidas.
+                <h3 class="text-2xl font-black mb-4 italic uppercase">Front-end Pro</h3>
+                <p class="text-zinc-500 text-sm leading-relaxed">
+                    Sites modernos, responsivos e otimizados. Foco em UX/UI e performance bruta.
                 </p>
-                <div class="text-[10px] mono font-bold text-zinc-700 tracking-widest uppercase">Sites / Landing Pages / SaaS</div>
             </div>
 
             <!-- Jogos 2D -->
-            <div class="game-card p-12 rounded-[2.5rem] reveal" style="transition-delay: 0.1s;">
-                <div class="mb-8">
-                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="17" cy="12" r="1"/><circle cx="7" cy="12" r="1"/></svg>
+            <div class="game-card p-12 rounded-sm reveal" style="transition-delay: 0.1s;">
+                <div class="mb-8 opacity-20">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M6 12h4M8 10v4M15 13h.01M18 11h.01"/></svg>
                 </div>
-                <h3 class="text-3xl font-black mb-4 italic uppercase">Jogos 2D</h3>
-                <p class="text-zinc-500 text-sm leading-relaxed mb-10">
-                    Jogos para web com física real, colisão e lógica avançada. Perfeito para marketing gamificado ou diversão pura.
+                <h3 class="text-2xl font-black mb-4 italic uppercase">Web Games 2D</h3>
+                <p class="text-zinc-500 text-sm leading-relaxed">
+                    Desenvolvimento de jogos com física, lógica e sistemas de partículas para navegadores.
                 </p>
-                <div class="text-[10px] mono font-bold text-zinc-700 tracking-widest uppercase">Canvas API / Physics / Web Games</div>
             </div>
 
             <!-- Jogos 3D -->
-            <div class="game-card p-12 rounded-[2.5rem] reveal" style="transition-delay: 0.2s;">
-                <div class="mb-8">
-                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+            <div class="game-card p-12 rounded-sm reveal" style="transition-delay: 0.2s;">
+                <div class="mb-8 opacity-20">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
                 </div>
-                <h3 class="text-3xl font-black mb-4 italic uppercase">Jogos 3D</h3>
-                <p class="text-zinc-500 text-sm leading-relaxed mb-10">
-                    Experiências em 3 dimensões direto no browser. Renderização de modelos, iluminação dinâmica e mundos exploráveis.
+                <h3 class="text-2xl font-black mb-4 italic uppercase">Experiências 3D</h3>
+                <p class="text-zinc-500 text-sm leading-relaxed">
+                    Uso de Three.js e WebGL para criar mundos e objetos tridimensionais interativos.
                 </p>
-                <div class="text-[10px] mono font-bold text-zinc-700 tracking-widest uppercase">Three.js / WebGL / Models</div>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
     <section id="contato" class="py-32 px-6">
-        <div class="max-w-5xl mx-auto bg-zinc-900/40 border border-zinc-800 p-12 md:p-24 rounded-[3rem] text-center relative overflow-hidden">
-            <h2 class="text-5xl md:text-8xl font-black mb-10 italic tracking-tighter uppercase glow-text leading-none">VAMOS FECHAR O <br> PROJETO?</h2>
-            <p class="text-zinc-400 mb-16 max-w-lg mx-auto text-lg">
-                Seja um site profissional ou um jogo épico, eu transformo a tua ideia em código.
+        <div class="max-w-4xl mx-auto border border-zinc-800 bg-zinc-950 p-12 md:p-24 rounded-sm text-center relative overflow-hidden">
+            <h2 class="text-4xl md:text-7xl font-black mb-10 italic tracking-tighter uppercase leading-none">𝕿𝖍𝖊𝖚𝖟𝖎𝖓_𝖉𝖆_𝖇𝖑𝖆𝖈𝖐</h2>
+            <p class="text-zinc-500 mb-16 max-w-sm mx-auto text-sm font-bold uppercase tracking-widest">
+                "O valor depende do projeto. Me chama ae!"
             </p>
 
             <div class="flex flex-col items-center gap-10">
-                <!-- Discord UI -->
-                <div class="w-full max-w-md bg-black border border-zinc-800 p-6 rounded-[2rem] flex flex-col sm:flex-row items-center justify-between gap-6 group hover:border-zinc-500 transition-all">
+                <!-- Discord Box -->
+                <div class="w-full max-w-md bg-black border border-zinc-800 p-6 flex flex-col sm:flex-row items-center justify-between gap-6 group hover:border-zinc-400 transition-all">
                     <div class="flex items-center gap-5 text-left">
-                        <!-- Ícone do Discord Corrigido -->
-                        <div class="w-14 h-14 bg-[#5865F2] rounded-2xl flex items-center justify-center shadow-lg shadow-[#5865F2]/20">
-                            <svg width="28" height="28" viewBox="0 0 127.14 96.36" fill="white">
+                        <div class="w-12 h-12 bg-[#5865F2] rounded flex items-center justify-center">
+                            <svg width="24" height="24" viewBox="0 0 127.14 96.36" fill="white">
                                 <path d="M107.7,8.07A105.15,105.15,0,0,0,81.47,0a72.06,72.06,0,0,0-3.36,6.83A97.68,97.68,0,0,0,49,6.83,72.37,72.37,0,0,0,45.64,0,105.89,105.89,0,0,0,19.39,8.09C2.71,32.65-1.82,56.6.4,80.21a105.73,105.73,0,0,0,32.17,16.15,77.7,77.7,0,0,0,6.89-11.11,68.42,68.42,0,0,1-10.85-5.18c.91-.66,1.8-1.34,2.66-2a75.57,75.57,0,0,0,64.32,0c.87.71,1.76,1.39,2.66,2a68.68,68.68,0,0,1-10.87,5.19,77,77,0,0,0,6.89,11.1,105.25,105.25,0,0,0,32.19-16.14c3.39-29-5.86-52.64-19.39-72.14ZM42.45,65.69C36.18,65.69,31,60,31,53s5-12.74,11.43-12.74S54,46,53.87,53,48.74,65.69,42.45,65.69Zm42.24,0C78.41,65.69,73.25,60,73.25,53s5-12.74,11.44-12.74S96.23,46,96.11,53,91,65.69,84.69,65.69Z"/>
                             </svg>
                         </div>
                         <div>
-                            <p class="text-[10px] text-zinc-600 font-bold uppercase tracking-widest mb-1">Me Adiciona</p>
-                            <p id="discord-tag" class="mono font-bold text-white text-sm">theuzin_da_black#0000</p>
+                            <p class="text-[9px] text-zinc-600 font-bold uppercase tracking-widest mb-1">Discord Tag</p>
+                            <p id="discord-tag" class="mono font-bold text-white text-xs">theuzin_da_black#0000</p>
                         </div>
                     </div>
-                    <button onclick="copyDiscord()" id="copy-btn" class="px-6 py-3 bg-zinc-900 border border-zinc-800 rounded-xl hover:bg-zinc-800 transition-all mono text-xs font-bold uppercase tracking-widest">
-                        Copiar
+                    <button onclick="copyDiscord()" id="copy-btn" class="px-5 py-2 bg-zinc-900 border border-zinc-800 hover:bg-white hover:text-black transition-all mono text-[10px] font-bold uppercase tracking-widest">
+                        COPIAR
                     </button>
                 </div>
 
-                <div class="flex gap-10 text-xs font-bold uppercase tracking-[0.3em] text-zinc-600">
+                <div class="flex gap-10 text-[10px] font-bold uppercase tracking-[0.4em] text-zinc-700">
                     <a href="#" class="hover:text-white transition-colors">Github</a>
-                    <a href="#" class="hover:text-white transition-colors">Instagram</a>
                     <a href="mailto:contato@theuzin.dev" class="hover:text-white transition-colors">Email</a>
                 </div>
             </div>
@@ -224,13 +201,13 @@
     </section>
 
     <!-- Footer -->
-    <footer class="py-20 text-center border-t border-zinc-900">
-        <p class="mono text-[10px] text-zinc-700 tracking-[0.6em] uppercase">theuzin_da_black &mdash; Front-end & Games Master &copy; 2024</p>
+    <footer class="py-20 text-center">
+        <p class="mono text-[9px] text-zinc-800 tracking-[0.8em] uppercase italic">𝕿𝖍𝖊𝖚𝖟𝖎𝖓_𝖉𝖆_𝖇𝖑𝖆𝖈𝖐 // 𝕯𝖊𝖛 // 2024</p>
     </footer>
 
     <script>
         function copyDiscord() {
-            const tag = "theuzin_da_black#0000"; // ALTERA PARA A TUA TAG REAL AQUI
+            const tag = "theuzin_da_black#0000"; // SUA TAG AQUI
             const btn = document.getElementById('copy-btn');
             
             const el = document.createElement('textarea');
@@ -241,7 +218,7 @@
             document.body.removeChild(el);
 
             // Feedback Visual
-            btn.innerText = 'COPIADO!';
+            btn.innerText = 'COPIADO';
             btn.classList.add('copy-success');
             
             setTimeout(() => {
@@ -250,7 +227,6 @@
             }, 2000);
         }
 
-        // Observer para animação de revelação
         const revealCallback = (entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
